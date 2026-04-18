@@ -1,0 +1,104 @@
+# percobaan C
+class StackMahasiswa:
+    def __init__(self):
+        self.stack = []
+
+    # PUSH 1 DATA
+    def push(self):
+        id_mhs = input("Masukkan ID: ")
+        nama = input("Masukkan Nama: ")
+        nilai = int(input("Masukkan Nilai: "))
+
+        data = {
+            "id": id_mhs,
+            "nama": nama,
+            "nilai": nilai
+        }
+
+        self.stack.append(data)
+        print("Data berhasil ditambahkan!")
+
+    # MULTI PUSH
+    def multipush(self):
+        n = int(input("Masukkan jumlah data: "))
+        for i in range(n):
+            print(f"\nData ke-{i+1}")
+            self.push()
+
+    # POP 1 DATA
+    def pop(self):
+        if len(self.stack) == 0:
+            print("Stack kosong!")
+        else:
+            data = self.stack.pop()
+            print("Data keluar:", data)
+
+    # MULTI POP
+    def multipop(self):
+        n = int(input("Berapa data yang ingin dikeluarkan: "))
+        for i in range(n):
+            if len(self.stack) == 0:
+                print("Stack sudah kosong!")
+                break
+            else:
+                print("Data keluar:", self.stack.pop())
+
+    # TAMPIL DATA
+    def tampil(self):
+        if len(self.stack) == 0:
+            print("Tidak ada data")
+        else:
+            print("\n=== DATA MAHASISWA ===")
+            for data in reversed(self.stack):  # biar terlihat seperti stack
+                print(f"ID: {data['id']}, Nama: {data['nama']}, Nilai: {data['nilai']}")
+
+    # SORTING BERDASARKAN NILAI
+    def sorting(self):
+        if len(self.stack) == 0:
+            print("Data kosong!")
+        else:
+            self.stack.sort(key=lambda x: x["nilai"])
+            print("Data berhasil diurutkan berdasarkan nilai (ascending)!")
+
+    # CEK KOSONG
+    def isempty(self):
+        print(len(self.stack) == 0)
+
+    # MENU
+    def menu(self):
+        while True:
+            print("\n=== MENU STACK MAHASISWA ===")
+            print("1. Push")
+            print("2. Multi Push")
+            print("3. Pop")
+            print("4. Multi Pop")
+            print("5. Tampilkan Data")
+            print("6. Sorting Nilai")
+            print("7. Cek Kosong")
+            print("8. Keluar")
+
+            pil = int(input("Pilih menu: "))
+
+            if pil == 1:
+                self.push()
+            elif pil == 2:
+                self.multipush()
+            elif pil == 3:
+                self.pop()
+            elif pil == 4:
+                self.multipop()
+            elif pil == 5:
+                self.tampil()
+            elif pil == 6:
+                self.sorting()
+            elif pil == 7:
+                self.isempty()
+            elif pil == 8:
+                print("Program selesai ")
+                break
+            else:
+                print("Pilihan tidak valid!")
+
+# Jalankan program
+s = StackMahasiswa()
+s.menu()
