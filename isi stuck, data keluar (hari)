@@ -1,0 +1,35 @@
+class Stack:
+    def __init__(self):
+        self.stack=[]
+
+    def add(self,dataval):
+        if dataval not in self.stack:
+            self.stack.append(dataval)
+            return True
+        else:
+            return False
+
+    def pop(self):
+        if len(self.stack) > 0:
+            return self.stack.pop()
+        else:
+            return "Stack kosong"
+
+    def peek(self):
+        return self.stack[-1]
+
+    def cetak(self):
+        print('Isi stack :', self.stack)
+
+
+Astack=Stack()
+
+Astack.add("Minggu")
+Astack.add("Senin")
+Astack.add("Selasa")
+Astack.add("Rabu")
+
+Astack.cetak()
+
+print("Data keluar:", Astack.pop())  # LIFO
+Astack.cetak()
