@@ -1,0 +1,66 @@
+stack = []
+
+def push():
+    j = int(input("Masukkan jumlah data: "))
+    for i in range(j):
+        value = input("-----> ")
+        stack.append(value)
+    print("Stack sekarang:", stack)
+
+def pop():
+    if len(stack) == 0:
+        print("Tidak ada data yang bisa dikeluarkan")
+    else:
+        print("Data yang dikeluarkan:", stack.pop())
+        print("Stack sekarang:", stack)
+
+def noel():
+    print("Panjang stack:", len(stack))
+
+def top():
+    if len(stack) == 0:
+        print("Stack kosong")
+    else:
+        print("Data teratas:", stack[-1])
+
+def isempty():
+    if len(stack) == 0:
+        print("True")
+    else:
+        print("False")
+
+def tampil():
+    print("Isi stack:", stack)
+
+def menu():
+    while True:
+        print("\n=== MENU STACK ===")
+        print("1. Cetak TOP")
+        print("2. Cetak Stack")
+        print("3. Ambil nilai terakhir (POP)")
+        print("4. Input Stack (PUSH)")
+        print("5. Panjang Stack")
+        print("6. Cek Kosong")
+        print("7. Keluar")
+
+        pil = int(input("Pilih menu: "))
+
+        if pil == 1:
+            top()
+        elif pil == 2:
+            tampil()
+        elif pil == 3:
+            pop()
+        elif pil == 4:
+            push()
+        elif pil == 5:
+            noel()
+        elif pil == 6:
+            isempty()
+        elif pil == 7:
+            print("Terima kasih ")
+            break
+        else:
+            print("Pilihan tidak valid!")
+
+menu()
