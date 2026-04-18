@@ -1,0 +1,68 @@
+#Versi Class 
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self):
+        j = int(input("Masukkan jumlah data: "))
+        for i in range(j):
+            value = input("-----> ")
+            self.stack.append(value)
+        print("Stack sekarang:", self.stack)
+
+    def pop(self):
+        if len(self.stack) == 0:
+            print("Tidak ada data")
+        else:
+            print("Data keluar:", self.stack.pop())
+            print("Stack sekarang:", self.stack)
+
+    def top(self):
+        if len(self.stack) == 0:
+            print("Stack kosong")
+        else:
+            print("Data teratas:", self.stack[-1])
+
+    def size(self):
+        print("Panjang stack:", len(self.stack))
+
+    def isempty(self):
+        print(len(self.stack) == 0)
+
+    def tampil(self):
+        print("Isi stack:", self.stack)
+
+    def menu(self):
+        while True:
+            print("\n=== MENU STACK (CLASS) ===")
+            print("1. TOP")
+            print("2. TAMPIL")
+            print("3. POP")
+            print("4. PUSH")
+            print("5. SIZE")
+            print("6. ISEMPTY")
+            print("7. KELUAR")
+
+            pil = int(input("Pilih: "))
+
+            if pil == 1:
+                self.top()
+            elif pil == 2:
+                self.tampil()
+            elif pil == 3:
+                self.pop()
+            elif pil == 4:
+                self.push()
+            elif pil == 5:
+                self.size()
+            elif pil == 6:
+                self.isempty()
+            elif pil == 7:
+                print("Program selesai ")
+                break
+            else:
+                print("Pilihan salah!")
+
+# jalankan
+s = Stack()
+s.menu()
