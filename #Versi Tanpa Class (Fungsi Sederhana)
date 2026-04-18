@@ -1,0 +1,31 @@
+#Versi Tanpa Class (Fungsi Sederhana)
+stack = []
+
+def isEmpty():
+    return stack == []
+
+def push(item):
+    stack.append(item)
+
+def pop():
+    return stack.pop()
+
+def peek():
+    return stack[len(stack)-1]
+
+def size():
+    return len(stack)
+
+def printStack():
+    print(stack)
+
+
+# penggunaan
+push('hello')
+push('hello2')
+push('hello3')
+push(4)
+
+printStack()
+print(pop())
+printStack()
